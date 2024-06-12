@@ -1,0 +1,10 @@
+.aside {
+    display: none;
+    width: 300px;
+  }
+  @media (min-width: 720px) {
+    .aside {
+      display: block;
+    }
+  }
+  
