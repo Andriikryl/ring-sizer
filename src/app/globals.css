@@ -57,6 +57,7 @@ html, body {
 
 main{
   z-index: 20;
+  flex: 1;
 }
 /* Prevent font size inflation */
 html {
@@ -126,43 +127,24 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-.wrapper{
-    --gap: clamp(1rem, 6vw, 3rem);
-    --full: minmax(var(--gap), 1fr);
-    --content: min(120ch, 100% - var(--gap) * 2);
-    --popout: minmax(0, 2rem);
-    --feature: minmax(0, 5rem);
-    display: grid;
-    grid-template-columns:
-      [full-start] var(--full)
-      [feature-start] var(--feature)
-      [popout-start] var(--popout)
-      [content-start] var(--content) [content-end]
-      var(--popout) [popout-end]
-      var(--feature) [feature-end]
-      var(--full) [full-end];
+
+
+
+/* ////////////////// */
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 1800px;
 }
-
-.wrapper > * {
-    grid-column: content;
-    position: relative;
-    z-index: 100;
+@media (min-width: 720px) {
+  .layout {
+    flex-direction: row;
+    align-items: start;
   }
-  /* .popout {
-    grid-column: popout;
-  }
-  .feature {
-    grid-column: feature;
-  }
-  .full {
-    grid-column: full;
-  } */
-
-  .flow{
-    display: grid;
-    grid-template-columns: fit-content(20ch) minmax(min(50vw, 30ch), 1fr);
-  }
-
- .nav{
-  min-width: 300px;
- }
+}
+.layout > * {
+  min-width: 0;
+}
