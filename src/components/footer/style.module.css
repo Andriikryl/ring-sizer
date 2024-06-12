@@ -1,0 +1,11 @@
+.footer {
+    --navSize: clamp(160px, 15vw, 200px);
+    flex: 0 0 100%;
+  }
+  @media (min-width: 1020px) {
+    .footer {
+      flex: 0 0 calc(100% - calc(var(--navSize) + 16px));
+      margin-left: calc(clamp(160px, 15vw, 200px) + 16px);
+    }
+  }
+  
